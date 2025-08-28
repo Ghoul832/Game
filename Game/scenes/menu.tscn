@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://5w8otaqp6ccb"]
+
+[ext_resource type="FontFile" uid="uid://bwkl7aaxvh7l1" path="res://assets/refence/GrapeSoda.ttf" id="3_4ytvr"]
+
+[sub_resource type="GDScript" id="GDScript_yqeox"]
+script/source = "extends Control
+
+func _ready() -> void:
+	$VBoxContainer/PlayButton.pressed.connect(_on_play_pressed)
+	$VBoxContainer/QuitButton.pressed.connect(_on_quit_pressed)
+
+func _on_play_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://scenes/world.tscn\")
+
+func _on_quit_pressed() -> void:
+	get_tree().quit()
+"
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_yqeox")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+offset_top = 20.0
+offset_right = 1058.0
+offset_bottom = 141.0
+scale = Vector2(0.310462, 0.310462)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_fonts/font = ExtResource("3_4ytvr")
+theme_override_font_sizes/font_size = 99
+text = "Game Type Shi"
+horizontal_alignment = 1
+vertical_alignment = 1
